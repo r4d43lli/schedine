@@ -1,0 +1,110 @@
+.layout{
+    display: grid;
+
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 100px 200px 1fr 1fr 150px;
+
+    grid-template-areas: 
+        "menu menu menu"
+        "news news news" 
+        "classifica ultime bet"
+        "classifica calend bet"
+        "pubbli pubbli pubbli"
+        ;
+
+    height: 100vh;
+}
+
+.menu{
+    grid-area: menu;
+    
+    padding: 10px;
+    border: solid black 2px;
+    margin: 5px;
+}
+.menupiccolo{
+    display: grid;
+    grid-template-columns: repeat(4, 90px) 90px;
+    justify-content: space-evenly;
+
+    padding: 10px;
+    border: solid black 2px;
+    margin: 5px;
+}
+.menupiccolonews{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    justify-content: space-evenly;
+
+    border: solid black 2px;
+    margin: 5px;
+}
+    .box {
+        border: 2px solid black;
+        padding: 10px;
+    }
+    .profilo{
+        border: 2px solid black;
+        padding: 10px;
+        justify-content: end;
+    }
+    .boxnews {
+        border: 2px solid black;
+        padding: 10px;
+    }
+
+.news{
+    grid-area: news;
+
+    padding: 10px;
+    border: solid black 2px;
+    margin: 5px;
+}
+.classifica {
+    grid-area: classifica;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: xx-large;
+    text-align: center;
+    padding: 10px;
+    border: solid black 2px;
+    margin: 5px;
+}
+
+.ultime{
+    grid-area: ultime;
+    
+    padding: 10px;
+    border: solid black 2px;
+    margin: 5px;
+}
+
+.calend{
+    grid-area: calend;
+    
+    padding: 10px;
+    border: solid black 2px;
+    margin: 5px;
+}
+
+.bet {
+    grid-area: bet;
+    padding: 10px;
+    border: solid black 2px;
+    margin: 5px;
+}
+.pubbli{
+    grid-area: pubbli;
+    padding: 10px;
+    border: solid black 2px;
+    margin: 5px;
+}
+.immaginipubblicita{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    justify-content: space-evenly;
+
+    border: solid black 2px;
+    margin: 5px;
+
+}
+
