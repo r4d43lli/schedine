@@ -1,0 +1,78 @@
+body {
+    margin: 0;
+    background: radial-gradient(circle, #111, #000);
+    color: white;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.game {
+    text-align: center;
+}
+
+h1 {
+    color: #00e676;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+}
+
+.stats {
+    margin-bottom: 10px;
+}
+
+.bet-area {
+    margin-bottom: 15px;
+}
+
+input {
+    width: 60px;
+    padding: 5px;
+    text-align: center;
+}
+
+.slot {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.reel {
+    width: 90px;
+    height: 90px;
+    background: #1a1a1a;
+    border: 3px solid #333;
+    border-radius: 12px;
+    font-size: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.1s;
+}
+
+.reel.spinning {
+    transform: rotateX(360deg);
+}
+
+button {
+    padding: 12px 25px;
+    font-size: 18px;
+    background: #00e676;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 6px;
+}
+
+button:disabled {
+    background: #444;
+    cursor: not-allowed;
+}
+
+#result {
+    margin-top: 15px;
+    font-size: 20px;
+}
