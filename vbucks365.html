@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="stile.css">
+    <title>Vbucks365</title>
+</head>
+<body>
+
+    <div class="layout">
+
+        <div class="menu">
+            <div class="logo">Vbucks365</div>
+            <div class="menupiccolo">
+                <div class="box" onclick="mostraSezione('classifica')">Classifica</div>
+                <div class="box" onclick="mostraSezione('calend')">Calendario</div>
+                <div class="box" onclick="mostraSezione('ultime')">Ultime</div>
+                <div class="box" onclick="mostraSezione('bet')">Bet</div>
+                <div class="profilo">👤 Profilo</div>
+            </div>
+        </div>
+
+        <div class="news">
+            <div class="news-label">NEWS</div>
+            <div class="menupiccolonews">
+                <div class="boxnews">⚽ San Bernardo vince il derby 3-1 contro CincioniFc</div>
+                <div class="boxnews">🏆 Classifica aggiornata: Fully Burger sale al 3° posto</div>
+                <div class="boxnews">📅 Prossimo turno: Hello Kitty FC vs Cannoli domenica ore 15</div>
+                <div class="boxnews">🔥 Igor Miti ingaggia due nuovi attaccanti per la prossima stagione</div>
+            </div>
+        </div>
+
+        <div class="classifica">
+            <div class="panel-header">Classifica</div>
+            <table id="tabella-classifica">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Squadra</th>
+                        <th>G</th>
+                        <th>V</th>
+                        <th>P</th>
+                        <th>Pts</th>
+                    </tr>
+                </thead>
+                <tbody id="corpo-classifica"></tbody>
+            </table>
+        </div>
+
+        <div class="ultime">
+            <div class="panel-header">Ultime Partite</div>
+            <div id="lista-ultime"></div>
+        </div>
+
+        <div class="calend">
+            <div class="panel-header">Calendario</div>
+            <div id="lista-calendario"></div>
+        </div>
+
+        <div class="bet">
+            <div class="panel-header">Scommesse</div>
+            <div class="bet-form">
+
+                <div>
+                    <div class="bet-label">Squadra Casa</div>
+                    <select id="sq1" class="bet-squadra-select">
+                        <option value="">— Seleziona —</option>
+                    </select>
+                </div>
+
+                <div>
+                    <div class="bet-label">Squadra Ospite</div>
+                    <select id="sq2" class="bet-squadra-select">
+                        <option value="">— Seleziona —</option>
+                    </select>
+                </div>
+
+                <div>
+                    <div class="bet-label">Quote</div>
+                    <div class="bet-quote">
+                        <div class="quota-box"><div class="quota-tipo">1</div><div class="quota-val" id="q1">—</div></div>
+                        <div class="quota-box"><div class="quota-tipo">X</div><div class="quota-val" id="qx">—</div></div>
+                        <div class="quota-box"><div class="quota-tipo">2</div><div class="quota-val" id="q2">—</div></div>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="bet-label">Esito</div>
+                    <div class="bet-opciones">
+                        <div class="bet-opcion" onclick="selezionaEsito(this, '1')">1</div>
+                        <div class="bet-opcion" onclick="selezionaEsito(this, 'X')">X</div>
+                        <div class="bet-opcion" onclick="selezionaEsito(this, '2')">2</div>
+                        <div class="bet-opcion" onclick="selezionaEsito(this, '1X')">1X</div>
+                        <div class="bet-opcion" onclick="selezionaEsito(this, '2X')">2X</div>
+                    </div>
+                </div>
+
+                <button class="btn-svolgi" onclick="svolgiPartite()">▶ GIOCA</button>
+                <div id="risultato"></div>
+            </div>
+        </div>
+
+        <div class="pubbli">
+            <div class="pub-slot">📢 Pubblicità 1</div>
+            <div class="pub-slot">📢 Pubblicità 2</div>
+            <div class="pub-slot">📢 Pubblicità 3</div>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

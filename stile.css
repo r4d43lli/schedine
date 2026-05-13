@@ -1,110 +1,495 @@
-.layout{
-    display: grid;
-
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 100px 200px 1fr 1fr 150px;
-
-    grid-template-areas: 
-        "menu menu menu"
-        "news news news" 
-        "classifica ultime bet"
-        "classifica calend bet"
-        "pubbli pubbli pubbli"
-        ;
-
-    height: 100vh;
+/* ── RESET & VARIABILI ── */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-.menu{
+:root {
+    --verde: #00e676;
+    --verde-scuro: #00b248;
+    --sfondo: #0d0d0d;
+    --pannello: #141414;
+    --pannello2: #1a1a1a;
+    --bordo: #2a2a2a;
+    --testo: #e8e8e8;
+    --testo-dim: #888;
+    --rosso: #ff1744;
+    --oro: #ffc400;
+}
+
+body {
+    background: var(--sfondo);
+    color: var(--testo);
+    font-family: 'Barlow', 'Segoe UI', sans-serif;
+    min-height: 100vh;
+}
+
+/* ── LAYOUT ── */
+.layout {
+    display: grid;
+    grid-template-columns: 260px 1fr 260px;
+    grid-template-rows: 64px 48px 1fr 1fr 70px;
+    grid-template-areas:
+        "menu      menu    menu"
+        "news      news    news"
+        "classifica ultime  bet"
+        "classifica calend  bet"
+        "pubbli    pubbli  pubbli";
+    min-height: 100vh;
+}
+
+/* ── MENU ── */
+.menu {
     grid-area: menu;
-    
-    padding: 10px;
-    border: solid black 2px;
-    margin: 5px;
+    background: #111;
+    border-bottom: 2px solid var(--verde);
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    gap: 16px;
 }
-.menupiccolo{
-    display: grid;
-    grid-template-columns: repeat(4, 90px) 90px;
-    justify-content: space-evenly;
 
-    padding: 10px;
-    border: solid black 2px;
-    margin: 5px;
+.logo {
+    font-family: 'Bebas Neue', 'Impact', sans-serif;
+    font-size: 1.6rem;
+    color: var(--verde);
+    letter-spacing: 3px;
+    flex-shrink: 0;
 }
-.menupiccolonews{
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    justify-content: space-evenly;
 
-    border: solid black 2px;
-    margin: 5px;
+.menupiccolo {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    gap: 4px;
 }
-    .box {
-        border: 2px solid black;
-        padding: 10px;
-    }
-    .profilo{
-        border: 2px solid black;
-        padding: 10px;
-        justify-content: end;
-    }
-    .boxnews {
-        border: 2px solid black;
-        padding: 10px;
-    }
 
-.news{
+.box {
+    padding: 8px 16px;
+    font-family: 'Barlow Condensed', 'Barlow', sans-serif;
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--testo-dim);
+    cursor: pointer;
+    border-radius: 2px;
+    transition: color 0.2s, background 0.2s;
+}
+
+.box:hover {
+    color: var(--verde);
+    background: rgba(0, 230, 118, 0.07);
+}
+
+.profilo {
+    margin-left: auto;
+    padding: 7px 16px;
+    font-family: 'Barlow Condensed', 'Barlow', sans-serif;
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    border: 1px solid var(--bordo);
+    border-radius: 2px;
+    cursor: pointer;
+    color: var(--testo-dim);
+    transition: border-color 0.2s, color 0.2s;
+}
+
+.profilo:hover {
+    border-color: var(--verde);
+    color: var(--verde);
+}
+
+/* ── NEWS ── */
+.news {
     grid-area: news;
-
-    padding: 10px;
-    border: solid black 2px;
-    margin: 5px;
+    background: var(--pannello);
+    border-bottom: 1px solid var(--bordo);
+    display: flex;
+    align-items: stretch;
 }
+
+.news-label {
+    background: var(--verde);
+    color: #000;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 0.78rem;
+    letter-spacing: 2px;
+    padding: 0 14px;
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.menupiccolonews {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+}
+
+.boxnews {
+    flex: 1;
+    padding: 0 16px;
+    font-size: 0.82rem;
+    color: var(--testo-dim);
+    border-right: 1px solid var(--bordo);
+    cursor: pointer;
+    transition: color 0.2s, background 0.2s;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: flex;
+    align-items: center;
+}
+
+.boxnews:hover {
+    color: var(--verde);
+    background: rgba(0, 230, 118, 0.04);
+}
+
+.boxnews:last-child {
+    border-right: none;
+}
+
+/* ── PANEL HEADER (condiviso) ── */
+.panel-header {
+    font-family: 'Bebas Neue', 'Impact', sans-serif;
+    font-size: 1.05rem;
+    letter-spacing: 3px;
+    color: var(--verde);
+    padding: 12px 14px 10px;
+    border-bottom: 1px solid var(--bordo);
+}
+
+/* ── CLASSIFICA ── */
 .classifica {
     grid-area: classifica;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    font-size: xx-large;
+    background: var(--pannello);
+    border-right: 1px solid var(--bordo);
+    border-top: 1px solid var(--bordo);
+    overflow-y: auto;
+}
+
+#tabella-classifica {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.82rem;
+}
+
+#tabella-classifica th {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-size: 0.7rem;
+    color: var(--testo-dim);
+    padding: 8px 8px;
     text-align: center;
-    padding: 10px;
-    border: solid black 2px;
-    margin: 5px;
+    border-bottom: 1px solid var(--bordo);
 }
 
-.ultime{
+#tabella-classifica th:nth-child(2) {
+    text-align: left;
+    padding-left: 10px;
+}
+
+#tabella-classifica td {
+    padding: 7px 8px;
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+#tabella-classifica td:nth-child(2) {
+    text-align: left;
+    padding-left: 10px;
+}
+
+#tabella-classifica tr:hover td {
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.rank-num {
+    color: var(--testo-dim);
+    font-size: 0.75rem;
+}
+
+.rank-1 .rank-num { color: var(--oro); font-weight: 700; }
+.rank-2 .rank-num { color: #aaa; }
+.rank-3 .rank-num { color: #cd7f32; }
+
+.pts {
+    font-weight: 700;
+    color: var(--verde);
+}
+
+/* ── ULTIME PARTITE ── */
+.ultime {
     grid-area: ultime;
-    
-    padding: 10px;
-    border: solid black 2px;
-    margin: 5px;
+    background: var(--pannello);
+    border-top: 1px solid var(--bordo);
+    border-right: 1px solid var(--bordo);
+    overflow-y: auto;
 }
 
-.calend{
+.risultato-card {
+    padding: 9px 14px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.82rem;
+}
+
+.risultato-card:hover {
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.team-name {
+    flex: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 0.8rem;
+}
+
+.team-name.right {
+    text-align: right;
+}
+
+.score-box {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+    font-family: 'Bebas Neue', 'Impact', sans-serif;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    flex-shrink: 0;
+}
+
+.score-sep {
+    color: var(--bordo);
+}
+
+.score-win  { color: var(--verde); }
+.score-lose { color: var(--testo-dim); }
+.score-draw { color: var(--oro); }
+
+/* ── CALENDARIO ── */
+.calend {
     grid-area: calend;
-    
-    padding: 10px;
-    border: solid black 2px;
-    margin: 5px;
+    background: var(--pannello2);
+    border-top: 1px solid var(--bordo);
+    border-right: 1px solid var(--bordo);
+    overflow-y: auto;
 }
 
+.match-card {
+    padding: 9px 14px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.82rem;
+    color: var(--testo-dim);
+}
+
+.match-card:hover {
+    background: rgba(255, 255, 255, 0.02);
+    color: var(--testo);
+}
+
+.match-vs {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 0.7rem;
+    color: var(--verde);
+    background: rgba(0, 230, 118, 0.1);
+    padding: 2px 6px;
+    border-radius: 2px;
+    flex-shrink: 0;
+}
+
+.match-date {
+    margin-left: auto;
+    font-size: 0.72rem;
+    color: var(--testo-dim);
+    flex-shrink: 0;
+}
+
+/* ── SCOMMESSE ── */
 .bet {
     grid-area: bet;
-    padding: 10px;
-    border: solid black 2px;
-    margin: 5px;
+    background: var(--pannello);
+    border-top: 1px solid var(--bordo);
+    overflow-y: auto;
 }
-.pubbli{
-    grid-area: pubbli;
-    padding: 10px;
-    border: solid black 2px;
-    margin: 5px;
+
+.bet-form {
+    padding: 12px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
 }
-.immaginipubblicita{
+
+.bet-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 0.72rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--testo-dim);
+    margin-bottom: 5px;
+}
+
+.bet-squadra-select {
+    width: 100%;
+    background: var(--sfondo);
+    border: 1px solid var(--bordo);
+    color: var(--testo);
+    font-family: 'Barlow', sans-serif;
+    font-size: 0.82rem;
+    padding: 7px 10px;
+    border-radius: 2px;
+    outline: none;
+    cursor: pointer;
+}
+
+.bet-squadra-select:focus {
+    border-color: var(--verde);
+}
+
+.bet-quote {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    justify-content: space-evenly;
-
-    border: solid black 2px;
-    margin: 5px;
-
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4px;
 }
 
+.quota-box {
+    background: var(--pannello2);
+    border: 1px solid var(--bordo);
+    border-radius: 2px;
+    padding: 7px 4px;
+    text-align: center;
+}
+
+.quota-tipo {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 1px;
+    color: var(--testo-dim);
+}
+
+.quota-val {
+    font-family: 'Bebas Neue', 'Impact', sans-serif;
+    font-size: 1.1rem;
+    color: var(--oro);
+}
+
+.bet-opciones {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 4px;
+}
+
+.bet-opcion {
+    padding: 8px 4px;
+    border: 1px solid var(--bordo);
+    background: transparent;
+    color: var(--testo-dim);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: all 0.15s;
+    text-align: center;
+}
+
+.bet-opcion:hover {
+    border-color: var(--verde);
+    color: var(--verde);
+}
+
+.bet-opcion.selected {
+    border-color: var(--verde);
+    background: rgba(0, 230, 118, 0.12);
+    color: var(--verde);
+}
+
+.btn-svolgi {
+    width: 100%;
+    padding: 11px;
+    background: var(--verde);
+    border: none;
+    color: #000;
+    font-family: 'Bebas Neue', 'Impact', sans-serif;
+    font-size: 1.1rem;
+    letter-spacing: 3px;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+}
+
+.btn-svolgi:hover { background: var(--verde-scuro); }
+.btn-svolgi:active { transform: scale(0.98); }
+
+#risultato {
+    text-align: center;
+    font-family: 'Bebas Neue', 'Impact', sans-serif;
+    font-size: 1.3rem;
+    letter-spacing: 3px;
+    padding: 10px;
+    border-radius: 2px;
+    display: none;
+}
+
+#risultato.vinto {
+    background: rgba(0, 230, 118, 0.1);
+    color: var(--verde);
+    display: block;
+}
+
+#risultato.perso {
+    background: rgba(255, 23, 68, 0.1);
+    color: var(--rosso);
+    display: block;
+}
+
+/* ── PUBBLICITÀ ── */
+.pubbli {
+    grid-area: pubbli;
+    background: #111;
+    border-top: 2px solid var(--bordo);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 20px;
+    gap: 16px;
+}
+
+.pub-slot {
+    flex: 1;
+    height: 52px;
+    background: var(--pannello);
+    border: 1px solid var(--bordo);
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+    color: var(--testo-dim);
+    overflow: hidden;
+}
+
+.pub-slot img {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+}
