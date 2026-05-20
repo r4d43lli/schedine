@@ -1,0 +1,213 @@
+/* azzeramento base del browser */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f1eadc;
+    color: #111;
+}
+
+.barra-menu {
+    background: #111;
+    color: white;
+    border: 2px solid black;
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.titolo-sito {
+    color: white;
+    text-decoration: none;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.link-navigazione {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+
+.bottone, .link-navigazione a, .torna {
+    border: 2px solid black;
+    background: #f9f4ea;
+    color: #111;
+    padding: 8px 12px;
+    text-decoration: none;
+    font-weight: bold;
+    text-align: center;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.bottone:hover, .link-navigazione a:hover, .torna:hover {
+    background: #d8c7a7;
+}
+
+
+.griglia-home {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas:
+        "intestazione intestazione intestazione"
+        "classifica scommessa ultime";
+    gap: 10px;
+    min-height: 100vh;
+    padding: 10px;
+}
+
+
+.riquadro {
+    background: white;
+    border: 2px solid black;
+    padding: 18px;
+    min-height: 360px;
+}
+
+.sezione-classifica  { grid-area: classifica; }
+.sezione-scommessa   { grid-area: scommessa; }
+.sezione-ultime      { grid-area: ultime; }
+
+
+h2 { color: #1d4b3a; font-size: 26px; margin-bottom: 12px; }
+h3 { margin: 12px 0 6px; }
+.testo-grigio { color: #555; margin-bottom: 10px; }
+
+table { width: 100%; border-collapse: collapse; }
+th, td { border-bottom: 1px solid #c9bda8; padding: 8px; text-align: center; }
+th:nth-child(2), td:nth-child(2) { text-align: left; }
+
+
+label { display: block; font-weight: bold; margin: 10px 0 5px; }
+
+select {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid black;
+    background: #f9f4ea;
+    font-size: 15px;
+}
+
+.bottoni-quota {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 8px;
+    margin: 12px 0;
+}
+
+.bottoni-quota button {
+    border: 2px solid black;
+    background: #eee6d6;
+    padding: 12px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.bottoni-quota button span { display: block; margin-top: 4px; color: #1d4b3a; }
+.bottoni-quota button.scelto { background: #1d4b3a; color: white; }
+.bottoni-quota button.scelto span { color: white; }
+
+
+.btn-salva, .btn-gioca, .btn-reset {
+    width: 100%;
+    border: 2px solid black;
+    padding: 12px;
+    margin-top: 8px;
+    font-weight: bold;
+    font-size: 15px;
+    cursor: pointer;
+    box-shadow: 3px 3px 0 #111;
+}
+
+.btn-salva:hover, .btn-gioca:hover, .btn-reset:hover {
+    transform: translate(2px, 2px);
+    box-shadow: 1px 1px 0 #111;
+}
+
+.btn-salva { background: #f3c744; }
+.btn-gioca { background: #1d4b3a; color: white; }
+.btn-reset { background: white; color: #1d4b3a; }
+
+
+.lista-scommesse {
+    border: 2px solid #d8c7a7;
+    background: #f9f4ea;
+    padding: 10px;
+    margin: 10px 0;
+    min-height: 44px;
+}
+
+.riga-scommessa, .riga-partita, .riga-calendario {
+    border-bottom: 1px solid #c9bda8;
+    padding: 8px 0;
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+
+.etichetta { padding: 4px 8px; border-radius: 12px; font-size: 13px; white-space: nowrap; }
+.etichetta-ok     { background: #d5efd8; }
+.etichetta-no     { background: #f5caca; }
+.etichetta-neutra { background: #eee6d6; }
+
+
+#box-risultato {
+    margin-top: 10px;
+    padding: 10px;
+    display: none;
+    text-align: center;
+    font-weight: bold;
+    border: 2px solid black;
+    background: #f9f4ea;
+}
+
+
+.link-piccolo { display: inline-block; margin-top: 10px; }
+
+
+.pagina-interna {
+    width: 92%;
+    max-width: 1000px;
+    margin: 20px auto;
+    background: white;
+    border: 2px solid black;
+    padding: 24px;
+}
+
+
+.blocco-tutorial {
+    border: 2px solid #d8c7a7;
+    background: #f9f4ea;
+    padding: 16px;
+    margin-bottom: 16px;
+}
+
+.blocco-tutorial h3 { color: #1d4b3a; margin-bottom: 8px; }
+.blocco-tutorial p  { margin-bottom: 6px; line-height: 1.5; }
+.blocco-tutorial ul { padding-left: 20px; line-height: 1.8; }
+
+.numero-step {
+    display: inline-block;
+    background: #1d4b3a;
+    color: white;
+    font-weight: bold;
+    padding: 2px 9px;
+    border-radius: 50%;
+    margin-right: 6px;
+    font-size: 14px;
+}
+
+
+@media (max-width: 860px) {
+    .griglia-home {
+        grid-template-columns: 1fr;
+        grid-template-areas: "intestazione" "scommessa" "classifica" "ultime";
+    }
+    .barra-menu { flex-direction: column; align-items: flex-start; }
+    .link-navigazione { flex-wrap: wrap; }
+}

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="stylee.css">
+    <title>Vbucks365</title>
+</head>
+<body>
+
+<!-- BARRA IN ALTO CON NAVIGAZIONE -->
+<header class="barra-menu">
+    <a class="titolo-sito" href="vbucks365.html">Vbucks365</a>
+    <nav class="link-navigazione">
+        <a class="bottone" href="classifiche.html">Classifiche</a>
+        <a class="bottone" href="calendario.html">Calendario</a>
+        <a class="bottone" href="ultime.html">Ultime</a>
+        <a class="bottone" href="commento.html">Commento</a>
+        <a class="bottone" href="tutorial.html">Tutorial</a>
+    </nav>
+</header>
+
+<!-- GRIGLIA PRINCIPALE -->
+<div class="griglia-home">
+
+    <!-- riga intestazione vuota (area riservata per futura espansione) -->
+    <div style="grid-area:intestazione; display:none;"></div>
+
+    <!-- CLASSIFICA -->
+    <section class="sezione-classifica riquadro">
+        <h2>Classifica</h2>
+        <table>
+            <thead>
+                <tr><th>#</th><th>Squadra</th><th>G</th><th>V</th><th>N</th><th>P</th><th>Pt</th></tr>
+            </thead>
+            <tbody id="corpo-classifica"></tbody>
+        </table>
+        <a class="bottone link-piccolo" href="classifiche.html">Apri classifica completa</a>
+    </section>
+
+    <!-- SCOMMESSA -->
+    <section class="sezione-scommessa riquadro">
+        <h2>Scommessa della giornata</h2>
+        <p id="giornata-attuale" class="testo-grigio"></p>
+
+        <label for="partita-select">Scegli la partita</label>
+        <select id="partita-select"></select>
+
+        <div class="bottoni-quota">
+            <button onclick="selezionaEsito(this, '1')">1 <span id="q1">-</span></button>
+            <button onclick="selezionaEsito(this, 'X')">X <span id="qx">-</span></button>
+            <button onclick="selezionaEsito(this, '2')">2 <span id="q2">-</span></button>
+        </div>
+
+        <button class="btn-salva" onclick="salvaScommessa()">Salva scommessa</button>
+
+        <div id="lista-bet" class="lista-scommesse"></div>
+
+        <button class="btn-gioca" onclick="giocaGiornata()">Gioca giornata</button>
+        <button class="btn-reset" onclick="resetCampionato()">Ricomincia campionato</button>
+
+        <div id="box-risultato"></div>
+    </section>
+
+    <!-- ULTIME PARTITE -->
+    <section class="sezione-ultime riquadro">
+        <h2>Ultime partite</h2>
+        <div id="lista-ultime"></div>
+        <a class="bottone link-piccolo" href="ultime.html">Vedi tutte le ultime</a>
+        <a class="bottone link-piccolo" href="calendario.html">Apri calendario</a>
+    </section>
+
+</div>
+
+<script src="scripttt.js"></script>
+</body>
+</html>
